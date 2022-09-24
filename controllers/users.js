@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require("uuid");
 // since we are sharing code, when you pull you don't want to have to edit the
 // the bucket name, thats why we're using an environment variable
 const BUCKET_NAME = process.env.AWS_BUCKET_NAME;
-
+const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
@@ -80,7 +80,7 @@ async function login(req, res) {
       }
     });
   } catch (err) {
-    return res.status(401).json({err: 'error message');
+    return res.status(401).json({err: 'error message'});
   }
 }
 
