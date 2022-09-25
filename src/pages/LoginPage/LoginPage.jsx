@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LoginPage.css";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
-import { Button, Checkbox, Form, Grid } from 'semantic-ui-react'
+import { Button, Checkbox, Form, Grid, Segment } from 'semantic-ui-react'
 
 export default function LoginPage(props) {
   return (
@@ -15,7 +15,7 @@ export default function LoginPage(props) {
       <Grid.Column style={{ maxWidth: 450 }}>
         <h1 as="h2">Please log in below</h1>
       <Form>
-        
+        <Segment>
       <Form.Field>
         <label>Username</label>
         <input />
@@ -24,8 +24,11 @@ export default function LoginPage(props) {
         <label>Password</label>
         <input />
       </Form.Field>
+      <Button>
+      Sign up
+    </Button>
+      </Segment>
     </Form>
-    
     </Grid.Column>
     </Grid>
   );
