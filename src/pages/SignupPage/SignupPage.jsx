@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import userService from "../../utils/userService";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Form, Grid, Segment } from 'semantic-ui-react'
 
 export default function SignUpPage(props) {
@@ -21,6 +21,7 @@ export default function SignUpPage(props) {
 
   // setting up the useState for the photo upload below
   const [selectedFile, setSelectedFile] = useState('')
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setState({
@@ -54,7 +55,7 @@ export default function SignUpPage(props) {
     try {
       await userService.signup(formData);
       props.handleSignUpOrLogin();
-      Navigate("/");
+      navigate("/");
     } catch(err){
       setError({message: err.message, passwordError: false})
     }
