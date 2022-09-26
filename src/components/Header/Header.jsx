@@ -16,7 +16,7 @@ export default function PageHeader({loggedUser, handleLogout}){
     </Header>
     <Header textAlign="center">
         <h3>
-            <Link to={`/${loggedUser?.username}`}>Profile</Link>   Suggested/ Listen to Later Click to Add a New Song Feed
+            <Link to={`/${loggedUser?.username}`}>Profile</Link>   Suggested/ Listen to Later Click to Add a New Song <Link to="/">Feed</Link>
        </h3>
     </Header>
     <Header floated="right">
