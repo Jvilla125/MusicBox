@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import userService from "../../utils/userService";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Button, Checkbox, Form, Grid, Segment } from 'semantic-ui-react'
 
 export default function SignUpPage(props) {
@@ -33,20 +33,30 @@ export default function SignUpPage(props) {
     setSelectedFile(e.target.files[0])
   }
 
+  function isPasswordMatch(passwordOne, passwordConf){
+    return passwordOne === passwordConf;
+  }
+
   // function to handle form submission using 'formdata' 
   // 
   async function handleSubmit(e){
     e.preventDefault()
+    if (!isPasswordMatch(state.password, state.passwordConf)) return setError({message: 'Passwords Must Match!', passwordError: true})
+    setError({message: '', passwordError: false})
     const formData = new FormData()
     formData.append('photo', selectedFile)
     for (let value in state){
       formData.append(value, state[value]);
     }
+
+    console.log(formData.forEach((item) => console.log(item)), "<- this is each value in the formData")
     
     try {
       await userService.signup(formData);
+      props.handleSignUpOrLogin();
+      Navigate("/");
     } catch(err){
-      setError(err.message)
+      setError({message: err.message, passwordError: false})
     }
   }
 
@@ -60,7 +70,7 @@ export default function SignUpPage(props) {
     >
       <Grid.Column style={{ maxWidth: 450 }}>
         <h1 as="h2">Please Sign Up</h1>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Segment stacked>
             <Form.Input
               name="username"
@@ -96,8 +106,8 @@ export default function SignUpPage(props) {
               Sign up
             </Button>
           </Segment>
+          {error.message ? <ErrorMessage error={error.message} /> : null}
         </Form>
-
       </Grid.Column>
     </Grid>
   );
