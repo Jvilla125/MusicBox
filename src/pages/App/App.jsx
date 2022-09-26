@@ -5,6 +5,7 @@ import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import Feed from "../Feed/Feed";
+import Profile from "../Profile/Profile"
 
 import userService from "../../utils/userService";
 
@@ -26,7 +27,7 @@ function App() {
     // if the user is logged in (AKA the json web token JWT exists)
     return (
       <Routes>
-        <Route path="/" element={<Feed/>} />
+        <Route path="/" element={<Feed loggedUser={user}/>} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
@@ -35,6 +36,11 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
+        <Route
+        path='/:username'
+        element={<Profile loggedUser={user}/>}
+        >
+        </Route>
       </Routes>
     );
   }

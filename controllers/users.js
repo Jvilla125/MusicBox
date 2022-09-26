@@ -11,7 +11,8 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
-  login
+  login,
+  getProfile
 };
 
 async function signup(req, res) {
@@ -84,6 +85,15 @@ async function login(req, res) {
   }
 }
 
+async function getProfile(req,res){
+  try{
+    const user = await User.findOne({username: req.params.username});
+    if (!user) return res.status(404).json({error: "User not found! Please try again"});
+  } catch(err){
+    res.status(400).json({error: "Something went wrong!"})
+  }
+
+}
 
 /*----- Helper Functions -----*/
 
