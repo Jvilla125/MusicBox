@@ -29,35 +29,35 @@ export default function SignUpPage(props) {
       [e.target.name]: e.target.value
     })
   }
-  function handleImageInput(e){
-    console.log(e.target.files,"<-- this is the image upload")
+  function handleImageInput(e) {
+    console.log(e.target.files, "<-- this is the image upload")
     setSelectedFile(e.target.files[0])
   }
 
-  function isPasswordMatch(passwordOne, passwordConf){
+  function isPasswordMatch(passwordOne, passwordConf) {
     return passwordOne === passwordConf;
   }
 
   // function to handle form submission using 'formdata' 
   // 
-  async function handleSubmit(e){
+  async function handleSubmit(e) {
     e.preventDefault()
-    if (!isPasswordMatch(state.password, state.passwordConf)) return setError({message: 'Passwords Must Match!', passwordError: true})
-    setError({message: '', passwordError: false})
+    if (!isPasswordMatch(state.password, state.passwordConf)) return setError({ message: 'Passwords Must Match!', passwordError: true })
+    setError({ message: '', passwordError: false })
     const formData = new FormData()
     formData.append('photo', selectedFile)
-    for (let value in state){
+    for (let value in state) {
       formData.append(value, state[value]);
     }
 
     console.log(formData.forEach((item) => console.log(item)), "<- this is each value in the formData")
-    
+
     try {
       await userService.signup(formData);
       props.handleSignUpOrLogin();
       navigate("/");
-    } catch(err){
-      setError({message: err.message, passwordError: false})
+    } catch (err) {
+      setError({ message: err.message, passwordError: false })
     }
   }
 
@@ -78,30 +78,38 @@ export default function SignUpPage(props) {
               placeholder="username"
               value={state.username}
               onChange={handleChange}
+              required
             />
             <Form.Input
+              type="email"
               name="email"
               placeholder="email"
               value={state.email}
               onChange={handleChange}
+              required
             />
             <Form.Input
+              type="password"
               name="password"
               placeholder="password"
               value={state.password}
               onChange={handleChange}
+              required
             />
             <Form.Input
+              type="password"
               name="passwordConf"
               placeholder="password Confirmation"
               value={state.passwordConf}
               onChange={handleChange}
+              required
             />
             <Form.Input
               type="file"
               name="photo"
               placeholder="upload image"
               onChange={handleImageInput}
+              required
             />
             <Button type='submit' >
               Sign up
