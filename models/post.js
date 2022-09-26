@@ -13,10 +13,10 @@ const suggestedSchema = mongoose.Schema({
 const postSchema = mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     photoUrl: String,
-    Song: String,
-    Artist: String,
-    Genre: String,
-    Mood: String,
+    song: String,
+    artist: String,
+    genre: String,
+    mood: String,
     likes: [likesSchema] // 1:M - 1 post has many likes
 })
 
