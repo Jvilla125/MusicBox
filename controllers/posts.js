@@ -9,7 +9,7 @@ const BUCKET_NAME = process.env.AWS_BUCKET_NAME;
 
 module.exports = {
     create,
-    index
+    index,
 }
 
 function create(req, res) {
