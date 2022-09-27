@@ -1,7 +1,16 @@
 import React from "react";
-import {Segment, Card, Image} from "semantic-ui-react"
+import {Segment, Card, Image, Button, Icon, Label} from "semantic-ui-react"
 
-export default function PostCard({posts, loggedUser, key, isProfile}){
+export default function PostCard({posts, loggedUser, isProfile, addLike, removeLike}){
+
+    const likeInit = posts.likes.findIndex(
+        (like) => like.username === loggedUser.username
+    );
+
+    const likeColor = likeInit > -1 ? "blue": "grey";
+
+    const clickHandler = likeInit > -1 ? () => removeLike(posts.likes[likeInit]._id) : () => addLike(posts._id)
+
     return(
     <>
     <Segment>
@@ -29,6 +38,13 @@ export default function PostCard({posts, loggedUser, key, isProfile}){
             <Card.Description>{posts.artist}</Card.Description>
             <Card.Description>{posts.genre}</Card.Description>
             <Card.Description>{posts.mood}</Card.Description>
+        </Card.Content>
+        <Card.Content>
+            <Icon 
+            name="thumbs up"
+            color = {likeColor}
+            onClick={clickHandler}
+            />
         </Card.Content>
 
 
