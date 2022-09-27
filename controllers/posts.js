@@ -10,6 +10,7 @@ const BUCKET_NAME = process.env.AWS_BUCKET_NAME;
 module.exports = {
     create,
     index,
+    delete: deletePost,
 }
 
 function create(req, res) {
@@ -43,3 +44,11 @@ async function index(req, res){
         res.status(400).json({err: err})
     }
 }
+
+// async function deletePost(req, res){
+//     try{
+//         const post = await Post.findOne({'posts._id': req.params.id, 'posts.username': req.user.username});
+//         post.remove(req.params)
+//     }
+
+// }
