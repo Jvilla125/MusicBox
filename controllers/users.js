@@ -89,7 +89,15 @@ async function getProfile(req,res){
   try{
     const user = await User.findOne({username: req.params.username});
     if (!user) return res.status(404).json({error: "User not found! Please try again"});
+    const posts = await Post.find({user: user._id}).populate("user").exec();
+    res.state(200).json({
+      date: {
+        user: user,
+        posts: posts
+      }
+    })
   } catch(err){
+    console.log(err.message, "<- profile controller")
     res.status(400).json({error: "Something went wrong!"})
   }
 

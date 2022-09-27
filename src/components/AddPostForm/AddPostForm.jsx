@@ -31,13 +31,13 @@ export default function AddPostForm(props) {
             formData.append(value, state[value])
         }
         console.log(formData.forEach((item) => console.log(item)), "<- this is each value" )
-        props.hanldeAddPost(formData);
+        props.handleAddPost(formData);
     
     }
     return (
         <>
             <Segment>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Input
                         name="song"
                         value={state.song}
@@ -70,7 +70,7 @@ export default function AddPostForm(props) {
                             onChange={handleImageInput}
                         />
                     </Form.Field>
-                    <Button type="submit">
+                    <Button type="submit" onClick={handleSubmit}>
                         Submit Post!
                     </Button>
                 </Form>

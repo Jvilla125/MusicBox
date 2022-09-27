@@ -27,7 +27,7 @@ function App() {
     // if the user is logged in (AKA the json web token JWT exists)
     return (
       <Routes>
-        <Route path="/" element={<Feed loggedUser={user}/>} />
+        <Route path="/" element={<Feed loggedUser={user} handleLogout={handleLogout}/>} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
@@ -38,7 +38,7 @@ function App() {
         />
         <Route
         path='/:username'
-        element={<Profile loggedUser={user}/>}
+        element={<Profile loggedUser={user} handleLogout={handleLogout}/>}
         >
         </Route>
       </Routes>
