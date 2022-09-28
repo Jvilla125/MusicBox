@@ -1,27 +1,32 @@
 import React from "react";
 import {Segment, Card, Image, Button, Icon, Label} from "semantic-ui-react"
+import { Link } from "react-router-dom"
 
-export default function PostCard({posts, loggedUser, isProfile, addLike, removeLike}){
+export default function PostCard({posts, loggedUser, isProfile, addLike, removeLike, listenLater, removeListenLater}){
 
     const likeInit = posts.likes.findIndex(
         (like) => like.username === loggedUser.username
     );
-
     const likeColor = likeInit > -1 ? "blue": "grey";
-
     const clickHandler = likeInit > -1 ? () => removeLike(posts.likes[likeInit]._id) : () => addLike(posts._id)
+
+    const listenLaterInit = posts.listenlater.findIndex(
+        (listen) => listen.username === loggedUser.username
+    );
+    const listenLaterColor = listenLaterInit > -1 ? "blue": "grey";
+    const listenLaterHandler = listenLaterInit > -1 ? () => removeListenLater(posts.listenlater[listenLaterInit]._id) : () => listenLater(posts._id)
 
     return(
     <>
     <Segment>
-    <Card key={posts._id}>
+    <Card key={posts._id} raised>
         {isProfile ? (
             ""
         ) : (
-        
+        <Card.Content>
         <Card.Header>
-            {/* <h2>{posts.user.username}</h2> */}
-            {/* <Image
+            <Link to={`/${posts.user.username}`}>
+              <Image
                 size="large"
                 avatar
                 src={
@@ -29,15 +34,18 @@ export default function PostCard({posts, loggedUser, isProfile, addLike, removeL
                     ? posts.user.photoUrl
                     : "https://react.semantic-ui.com/images/wireframe/square-image.png"
                 }
-              /> */}
+              />
+              {posts.user.username}
+              </Link>
         </Card.Header>
+        </Card.Content>
         )}
-        <Image src={`${posts?.photoUrl}`} />
+        <Image src={`${posts?.photoUrl}`} wrapped ui={false}/>
         <Card.Content>
-            <Card.Description>{posts.song}</Card.Description>
-            <Card.Description>{posts.artist}</Card.Description>
-            <Card.Description>{posts.genre}</Card.Description>
-            <Card.Description>{posts.mood}</Card.Description>
+            <Card.Description>Artist: {posts.artist}</Card.Description>
+            <Card.Description>Genre: {posts.genre}</Card.Description>
+            <Card.Description>Song: {posts.song}</Card.Description>
+            <Card.Description>Mood: {posts.mood}</Card.Description>
         </Card.Content>
         <Card.Content>
             <Icon 
@@ -45,8 +53,15 @@ export default function PostCard({posts, loggedUser, isProfile, addLike, removeL
             color = {likeColor}
             onClick={clickHandler}
             />
+            {posts.likes.length} Likes 
         </Card.Content>
-
+        <Card.Content>
+        <Icon
+            name="heart"
+            color = {listenLaterColor}
+            onClick = {listenLaterHandler}
+            /> {posts.listenlater.length} Listen to later
+            </Card.Content>
 
         </Card>
     </Segment>

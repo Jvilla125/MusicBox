@@ -5,7 +5,7 @@ const likesSchema = mongoose.Schema({
     userId: {type: mongoose.Schema.Types.ObjectId}
 })
 
-const suggestedSchema = mongoose.Schema({
+const listenlaterSchema = mongoose.Schema({
     username: String,
     userId: {type: mongoose.Schema.Types.ObjectId}
 })
@@ -17,7 +17,8 @@ const postSchema = mongoose.Schema({
     artist: String,
     genre: String,
     mood: String,
-    likes: [likesSchema] // 1:M - 1 post has many likes
+    likes: [likesSchema], // 1:M - 1 post has many likes
+    listenlater: [listenlaterSchema]
 })
 
 module.exports = mongoose.model('Post', postSchema)
