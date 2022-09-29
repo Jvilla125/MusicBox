@@ -13,7 +13,7 @@ export default function PageHeader({loggedUser, handleLogout}){
                 loggedUser?.photoUrl
                 ? loggedUser?.photoUrl
                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
-            } /> Patrick
+            } /> {loggedUser?.username}
     </Header>
     <Header className="links"  textAlign="center">
     <h3>

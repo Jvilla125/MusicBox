@@ -38,7 +38,7 @@ function App() {
         />
          <Route
         path='/listenlater'
-        element={<ListenLater/>}
+        element={<ListenLater loggedUser={user} handleLogout={handleLogout}/>}
         >
 
         </Route>
