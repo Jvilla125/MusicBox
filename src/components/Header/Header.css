@@ -5,3 +5,9 @@
 .header-text{
     color: white;
 }
+
+.links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}

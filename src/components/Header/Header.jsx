@@ -15,15 +15,21 @@ export default function PageHeader({loggedUser, handleLogout}){
                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
             } /> Patrick
     </Header>
-    <Header class="header-text" textAlign="center">
-        <h3>
-            <Link to={`/${loggedUser?.username}`}>Profile</Link>   Suggested/ Listen to Later Click to Add a New Song <Link to="/">Feed</Link>
+    <Header className="links" class="header-text" textAlign="center">
+    <h3>
+        <Link to={`/${loggedUser?.username}`}>Profile</Link>   
        </h3>
-    </Header>
-    <Header class="header-text" floated="right">
-        <Link to="/Login" >
+       <h3>
+       <Link to={`/listenlater`}>Listen to Later</Link>
+       </h3>
+       <h3>
+       <Link to="/">Feed</Link>
+       </h3>
+       <h3>
+       <Link to="/Login" >
             Logout
         </Link> 
+       </h3>
     </Header>
     </Segment>
     )

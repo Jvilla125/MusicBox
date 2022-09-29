@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
+import "./SignupPage.css";
+
 import userService from "../../utils/userService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Checkbox, Form, Grid, Segment } from 'semantic-ui-react'
 
 export default function SignUpPage(props) {
@@ -65,14 +67,15 @@ export default function SignUpPage(props) {
 
   return (
     <Grid
+    className="test"
       textAlign="center"
       style={{ height: "100vh", width: "100vw" }}
       verticalAlign="middle"
     >
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <h1 as="h2">Please Sign Up</h1>
-        <Form onSubmit={handleSubmit}>
-          <Segment stacked>
+      <Grid.Column className="SignUpColumn" style={{ maxWidth: 450 }}>
+        <Form className="SignUpForm" onSubmit={handleSubmit} >
+          <Segment  stacked>
+          <h1 as="h2">Please Sign Up</h1>
             <Form.Input
               name="username"
               placeholder="username"
@@ -117,6 +120,9 @@ export default function SignUpPage(props) {
           </Segment>
           {error.message ? <ErrorMessage error={error.message} /> : null}
         </Form>
+        <Segment>
+          <h3>If you have an account, please <Link to="/login">Log In</Link></h3>
+        </Segment>
       </Grid.Column>
     </Grid>
   );
