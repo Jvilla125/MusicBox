@@ -8,14 +8,14 @@ import ProfilePage from "../../pages/Profile/Profile"
 export default function PageHeader({loggedUser, handleLogout}){
     return(
     <Segment id="header">
-    <Header class="header-text" as='h2' floated="left">
+    <Header className="header-text" as='h2' floated="left">
         <Image src={
                 loggedUser?.photoUrl
                 ? loggedUser?.photoUrl
                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
             } /> Patrick
     </Header>
-    <Header className="links" class="header-text" textAlign="center">
+    <Header className="links"  textAlign="center">
     <h3>
         <Link to={`/${loggedUser?.username}`}>Profile</Link>   
        </h3>

@@ -4,6 +4,8 @@ import { Card, Dimmer, Segment, Image } from 'semantic-ui-react'
 
 
 export default function DisplayPosts({ posts, isProfile, loggedUser, addLike, removeLike, listenLater, removeListenLater }) {
+
+
     return (
         <Card.Group itemsPerRow={1} stackable>
             {posts.map((posts) => {
