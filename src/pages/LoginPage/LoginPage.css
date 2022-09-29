@@ -1,0 +1,18 @@
+.LoginGrid{
+    background: #000000 url('Loginimage.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: 90%;
+    background-position: center;
+}
+
+.LoginColumn{
+    box-shadow: 5px 5px 10px black;
+    background-color: rgb(99, 93, 93);
+}
+
+.LoginForm{
+    /* background-color: red; */
+    max-height: 500px;
+}

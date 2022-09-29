@@ -35,14 +35,16 @@ export default function LoginPage(props) {
   return (
     // <h1>Setup Login Page</h1>
     <Grid
+    className = "LoginGrid"
       textAlign="center"
       style={{ height: "100vh", width: "100vw" }}
       verticalAlign="middle"
     >
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <h1 as="h2">Please log in below</h1>
-        <Form onSubmit={handleSubmit}>
-          <Segment>
+      <Grid.Column style={{ maxWidth: 450 }} className="LoginColumn" inverted>
+        
+        <Form onSubmit={handleSubmit} className="LoginForm" inverted>
+          <Segment inverted>
+          <h1 as="h2">Please log in below</h1>
             <Form.Input
             type="username"
             name="username"
@@ -65,7 +67,7 @@ export default function LoginPage(props) {
           </Segment>
           {error.message ? <ErrorMessage error={error.message} /> : null}
         </Form>
-        <Segment>
+        <Segment inverted>
           <h3>If you do you have an account, please <Link to="/Signup">Sign up.</Link></h3>
         </Segment>
       </Grid.Column>

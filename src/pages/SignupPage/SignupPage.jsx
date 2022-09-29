@@ -72,9 +72,9 @@ export default function SignUpPage(props) {
       style={{ height: "100vh", width: "100vw" }}
       verticalAlign="middle"
     >
-      <Grid.Column className="SignUpColumn" style={{ maxWidth: 450 }}>
-        <Form className="SignUpForm" onSubmit={handleSubmit} >
-          <Segment  stacked>
+      <Grid.Column className="SignUpColumn" style={{ maxWidth: 450 }} inverted>
+        <Form className="SignUpForm" onSubmit={handleSubmit} inverted >
+          <Segment  inverted stacked>
           <h1 as="h2">Please Sign Up</h1>
             <Form.Input
               name="username"
@@ -120,7 +120,7 @@ export default function SignUpPage(props) {
           </Segment>
           {error.message ? <ErrorMessage error={error.message} /> : null}
         </Form>
-        <Segment>
+        <Segment inverted>
           <h3>If you have an account, please <Link to="/login">Log In</Link></h3>
         </Segment>
       </Grid.Column>

@@ -1,17 +1,18 @@
 .test{
     background: #000000 url('Signupimage.jpg');
     background-repeat: no-repeat;
-    width: 100vw;
+    width: 100%;
     height: 100%;
-    background-size: 100%;
+    background-size: 90%;
+    background-position: center;
 }
 
 .SignUpColumn{
-    background-color: blue;
-    
+    box-shadow: 5px 5px 10px black;
+    background-color: rgb(99, 93, 93);
 }
 
 .SignUpForm{
-    background-color: red;
+    /* background-color: red; */
     max-height: 500px;
 }
