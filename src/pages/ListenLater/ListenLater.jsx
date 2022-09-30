@@ -67,6 +67,8 @@ export default function ListenLater({loggedUser}){
         console.log("It is working!!")
         getProfile();
     }, [username, getProfile])
+
+    
     return(
         <>
         <PageHeader loggedUser={loggedUser} />

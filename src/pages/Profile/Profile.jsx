@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom"
-
+import {Segment, Divider, Image} from "semantic-ui-react"
 import userService from "../../utils/userService"
 import * as likesAPI from "../../utils/likesApi"
 import * as listenlaterAPI from "../../utils/listenlaterApi"
@@ -73,6 +73,17 @@ export default function ProfilePage({ loggedUser }) {
         <>
             
             <PageHeader loggedUser={loggedUser} />
+            <Segment>
+
+                <h1>hello</h1>
+                <Image rounded src={
+                    loggedUser?.photoUrl
+                        ? loggedUser?.photoUrl
+                        : "https://react.semantic-ui.com/images/wireframe/square-image.png"
+                } avatar size="small" /><span> {loggedUser?.username}</span>
+                <span>Total posts: {posts.length}</span>
+            </Segment>
+            <Divider/>
             <DisplayPosts
                 posts={posts}
                 numPhotosCol={1}

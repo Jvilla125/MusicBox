@@ -22,32 +22,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
             deletePost(posts._id)
         }
 
-    // const deleteHandler = () => {
-    //     deletePost(posts._id)
-    //     // isProfile ? getProfile() : getPosts();
-    // }
 
-    // async function getPosts(){
-    //     try{
-    //         const response = await postsAPI.getAll();
-    //         setPosts([...response.data]);
-    //         setLoading(false);
-    //     } catch(err){
-    //         setLoading(false)
-    //     }
-    // }
-
-    // const getProfile = useCallback(async () => {
-    //     try {
-    //         const response = await userService.getProfile(username);
-    //         setProfileUser(response.data.user)
-    //         setPosts(response.data.posts)
-    //         console.log(response)
-    //     } catch (err) {
-    //         console.log(err.message)
-    //         setError("Profile does not exist!")
-    //     }
-    // }, [username]);
 
     return (
                 <Card style={{ maxWidth: 300, maxHeight: 600}} color="green" key={posts._id} raised>

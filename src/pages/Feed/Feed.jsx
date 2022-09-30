@@ -88,7 +88,7 @@ export default function Feed({loggedUser, handleLogout}){
             setError("Error deleting posts, try again.")
         }
     }
-    
+
     useEffect(() => {
         getPosts();
     }, []);
