@@ -1,8 +1,10 @@
 #header{
     background: rgb(68, 65, 65);
+    height: 140px;
 }
 
 .header-text{
+    display: flex;
     color: white;
 }
 
@@ -10,4 +12,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
+}
+
+img{
+    height: 90px;
 }

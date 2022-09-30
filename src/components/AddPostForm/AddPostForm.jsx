@@ -36,7 +36,7 @@ export default function AddPostForm(props) {
     }
     return (
         <>
-            <Segment style={{ maxWidth: 450 }}>
+            <Segment style={{ maxWidth: 450 }} position="center">
                 <Form onSubmit={handleSubmit}>
                     <Form.Input
                         name="song"

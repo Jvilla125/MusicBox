@@ -71,6 +71,7 @@ export default function ProfilePage({ loggedUser }) {
 
     return (
         <>
+            
             <PageHeader loggedUser={loggedUser} />
             <DisplayPosts
                 posts={posts}
@@ -82,6 +83,7 @@ export default function ProfilePage({ loggedUser }) {
                 listenLater={listenLater}
                 removeListenLater={removeListenLater}
             />
+            
         </>
     )
 }
