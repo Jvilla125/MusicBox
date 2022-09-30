@@ -113,6 +113,7 @@ export default function Feed({loggedUser, handleLogout}){
         removeLike={removeLike}
         listenLater={listenLater}
         removeListenLater={removeListenLater}
+        setPost
         />
         </>
     )
