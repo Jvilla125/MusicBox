@@ -3,7 +3,7 @@ import { Segment, Card, Image, Button, Icon, Label } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 import {deletePost} from "../../utils/postApi"
 
-export default function PostCard({ posts, loggedUser, isProfile, addLike, removeLike, listenLater, removeListenLater }) {
+export default function PostCard({ posts, loggedUser, isProfile, addLike, removeLike, listenLater, removeListenLater, deletePost }) {
 
     const likeInit = posts.likes.findIndex(
         (like) => like.username === loggedUser.username
@@ -17,10 +17,15 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
     const listenLaterColor = listenLaterInit > -1 ? "blue" : "grey";
     const listenLaterHandler = listenLaterInit > -1 ? () => removeListenLater(posts.listenlater[listenLaterInit]._id) : () => listenLater(posts._id)
     
-    const deleteHandler = () => {
-        deletePost(posts._id)
-        // isProfile ? getProfile() : getPosts();
-    }
+
+        const handleClick = () => {
+            deletePost(posts._id)
+        }
+
+    // const deleteHandler = () => {
+    //     deletePost(posts._id)
+    //     // isProfile ? getProfile() : getPosts();
+    // }
 
     // async function getPosts(){
     //     try{
@@ -40,12 +45,11 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
     //         console.log(response)
     //     } catch (err) {
     //         console.log(err.message)
-    //         setError("Profile does not exist! You are in the wrong place")
+    //         setError("Profile does not exist!")
     //     }
     // }, [username]);
 
     return (
-    
                 <Card style={{ maxWidth: 300, maxHeight: 600}} color="green" key={posts._id} raised>
                     {isProfile ? (
                         ""
@@ -93,7 +97,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
                         {posts.user.username === loggedUser.username ?
                             (
                                 <button
-                                onClick={deleteHandler}
+                                onClick ={handleClick}
                                 >
                                     Delete
                                 </button>

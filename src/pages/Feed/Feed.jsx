@@ -61,7 +61,7 @@ export default function Feed({loggedUser, handleLogout}){
             setLoading(true);
             const response = await postsAPI.create(post)
             console.log(response)
-            setPosts([response.data, ...post]);
+            getPosts();
             setLoading(false);
         } catch(err){
             setError('Error creating post, please try again')
@@ -78,6 +78,17 @@ export default function Feed({loggedUser, handleLogout}){
         }
     }
 
+    async function deletePost(postId){
+        try{
+            setLoading(true);
+            const response = await postsAPI.deletePost(postId);
+            getPosts();
+            setLoading(false);
+        } catch(err){
+            setError("Error deleting posts, try again.")
+        }
+    }
+    
     useEffect(() => {
         getPosts();
     }, []);
@@ -113,7 +124,7 @@ export default function Feed({loggedUser, handleLogout}){
         removeLike={removeLike}
         listenLater={listenLater}
         removeListenLater={removeListenLater}
-        setPost
+        deletePost={deletePost}
         />
         </>
     )

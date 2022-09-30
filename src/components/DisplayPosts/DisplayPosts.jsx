@@ -3,8 +3,9 @@ import PostCard from "../../components/PostCard/PostCard"
 import { Card, Dimmer, Segment, Image } from 'semantic-ui-react'
 import Loader from "../Loader/Loader"
 
-export default function DisplayPosts({ posts, isProfile, loggedUser,loading, addLike, removeLike, listenLater, removeListenLater }) {
+export default function DisplayPosts({ posts, isProfile, loggedUser,loading, addLike, removeLike, listenLater, removeListenLater, deletePost }) {
 
+    
 
     return (
         <Card.Group itemsPerRow={3} stackable>
@@ -27,6 +28,7 @@ export default function DisplayPosts({ posts, isProfile, loggedUser,loading, add
                         removeLike={removeLike}
                         listenLater={listenLater}
                         removeListenLater={removeListenLater}
+                        deletePost={deletePost}
                     />
                 )
             })}
