@@ -4,6 +4,7 @@ import "./Feed.css"
 import PageHeader from "../../components/Header/Header"
 import AddPostForm from "../../components/AddPostForm/AddPostForm"
 import DisplayPosts from "../../components/DisplayPosts/DisplayPosts"
+import Loading from "../../components/Loader/Loader"
 
 import * as postsAPI from "../../utils/postApi"
 import * as likesAPI from "../../utils/likesApi"
@@ -94,7 +95,7 @@ export default function Feed({loggedUser, handleLogout}){
         return (
           <>
             <PageHeader handleLogout={handleLogout} loggedUser={loggedUser} />
-            {/* <Loading /> */}
+            <Loading />
           </>
         );
       }
@@ -106,13 +107,13 @@ export default function Feed({loggedUser, handleLogout}){
         <DisplayPosts 
         posts={post} 
         loggedUser={loggedUser} 
+        loading={loading}
         isProfile={false} 
         addLike={addLike} 
         removeLike={removeLike}
         listenLater={listenLater}
         removeListenLater={removeListenLater}
         />
-        <h1>This is the Feed Page</h1>
         </>
     )
 }

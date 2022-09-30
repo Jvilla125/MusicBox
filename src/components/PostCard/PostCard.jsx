@@ -22,9 +22,8 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
     }
 
     return (
-        <>
-            <Segment>
-                <Card color="green"  key={posts._id} raised>
+    
+                <Card style={{ maxWidth: 300, maxHeight: 600}} color="green" key={posts._id} raised>
                     {isProfile ? (
                         ""
                     ) : (
@@ -80,7 +79,6 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
 
                     </Card.Content>
                 </Card>
-            </Segment>
-        </>
+           
     )
 }

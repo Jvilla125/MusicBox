@@ -1,16 +1,24 @@
 import React from "react";
 import PostCard from "../../components/PostCard/PostCard"
 import { Card, Dimmer, Segment, Image } from 'semantic-ui-react'
+import Loader from "../Loader/Loader"
 
-
-export default function DisplayPosts({ posts, isProfile, loggedUser, addLike, removeLike, listenLater, removeListenLater }) {
+export default function DisplayPosts({ posts, isProfile, loggedUser,loading, addLike, removeLike, listenLater, removeListenLater }) {
 
 
     return (
         <Card.Group itemsPerRow={3} stackable>
+            {loading ? (
+          <Segment>
+            <Dimmer active inverted>
+              <Loader size="small">Loading</Loader>
+            </Dimmer>
+            <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
+          </Segment>
+        ) : null}
             {posts.map((posts) => {
                 return (
-                    <PostCard
+                    <PostCard style={{ maxWidth: 300, maxHeight: 600}}
                         posts={posts}
                         key={posts._id}
                         loggedUser={loggedUser}
