@@ -24,7 +24,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
     return (
         <>
             <Segment>
-                <Card key={posts._id} raised>
+                <Card color="green"  key={posts._id} raised>
                     {isProfile ? (
                         ""
                     ) : (
@@ -45,7 +45,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
                             </Card.Header>
                         </Card.Content>
                     )}
-                    <Image src={`${posts?.photoUrl}`} wrapped ui={false} />
+                    <Image size="medium" src={`${posts?.photoUrl}`}  bordered/>
                     <Card.Content>
                         <Card.Description>Artist: {posts.artist}</Card.Description>
                         <Card.Description>Genre: {posts.genre}</Card.Description>

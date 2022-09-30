@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Image, Segment, Icon } from "semantic-ui-react";
+import { Header, Image, Segment, Icon, Popup } from "semantic-ui-react";
 import "./Header.css";
 
 import ProfilePage from "../../pages/Profile/Profile"
@@ -19,12 +19,15 @@ export default function PageHeader({ loggedUser, handleLogout }) {
             </Header>
             <Header className="links" textAlign="center">
                 <h3>
+                    <Popup content="Profile" 
+                    trigger={
                     <Link to={`/${loggedUser?.username}`}>
                     <Icon
                             name="user outline"
                             color='blue'
                         />
-                        </Link>
+                        </Link>} inverted
+                        />
                 </h3>
                 <h3>
                     <Link to={`/listenlater`}>Listen to Later</Link>

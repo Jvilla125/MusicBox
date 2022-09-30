@@ -7,7 +7,7 @@ export default function DisplayPosts({ posts, isProfile, loggedUser, addLike, re
 
 
     return (
-        <Card.Group itemsPerRow={1} stackable>
+        <Card.Group itemsPerRow={3} stackable>
             {posts.map((posts) => {
                 return (
                     <PostCard

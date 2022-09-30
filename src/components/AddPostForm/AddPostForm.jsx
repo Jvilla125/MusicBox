@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Segment } from "semantic-ui-react";
+import { Button, Form, Segment, Popup} from "semantic-ui-react";
 
 export default function AddPostForm(props) {
 
@@ -35,7 +35,8 @@ export default function AddPostForm(props) {
     
     }
     return (
-        <>
+        
+    <Popup content={
             <Segment style={{ maxWidth: 450 }} position="center">
                 <Form onSubmit={handleSubmit}>
                     <Form.Input
@@ -75,6 +76,11 @@ export default function AddPostForm(props) {
                     </Button>
                 </Form>
             </Segment>
-        </>
+    }
+    on="click"
+    positionFixed
+    trigger={<Button>Click here to add a post</Button>}
+    />
+    
     )
 }
