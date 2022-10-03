@@ -25,7 +25,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
 
 
     return (
-                <Card style={{ maxWidth: 300, maxHeight: 600}} color="green" key={posts._id} raised>
+                <Card style={{ maxWidth: 550, maxHeight: 800}} color="green" key={posts._id} raised>
                     {isProfile ? (
                         ""
                     ) : (
@@ -46,7 +46,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
                             </Card.Header>
                         </Card.Content>
                     )}
-                    <Image size="medium" src={`${posts?.photoUrl}`}  bordered/>
+                    <Image size="big" src={`${posts?.photoUrl}`}  bordered/>
                     <Card.Content>
                         <Card.Description>Artist: {posts.artist}</Card.Description>
                         <Card.Description>Genre: {posts.genre}</Card.Description>

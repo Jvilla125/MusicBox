@@ -10,7 +10,7 @@ import * as postsAPI from "../../utils/postApi"
 import * as likesAPI from "../../utils/likesApi"
 import * as listenlaterAPI from "../../utils/listenlaterApi"
 
-// import { remove } from "../../../models/user";
+import { Grid } from "semantic-ui-react"
 
 export default function Feed({loggedUser, handleLogout}){
     const [post, setPosts] = useState([]);
@@ -97,7 +97,6 @@ export default function Feed({loggedUser, handleLogout}){
         return (
           <>
             <PageHeader handleLogout={handleLogout} loggedUser={loggedUser} />
-            {/* <ErrorMessage error={error} />; */}
           </>
         );
       }
@@ -111,10 +110,20 @@ export default function Feed({loggedUser, handleLogout}){
         );
       }
 
-    return (<>
-
-        <PageHeader loggedUser={loggedUser}/>
-        <AddPostForm handleAddPost={handleAddPost}/>
+    return (
+        <Grid centered>
+            <Grid.Row>
+        <Grid.Column>
+          <PageHeader handleLogout={handleLogout} loggedUser={loggedUser} />
+        </Grid.Column>
+      </Grid.Row>
+      
+      <Grid.Row centered>
+      <AddPostForm handleAddPost={handleAddPost}/>
+        </Grid.Row>
+      <Grid.Row>
+        <Grid.Column centered style={{ maxWidth: 600}}>
+        
         <DisplayPosts 
         posts={post} 
         loggedUser={loggedUser} 
@@ -126,6 +135,8 @@ export default function Feed({loggedUser, handleLogout}){
         removeListenLater={removeListenLater}
         deletePost={deletePost}
         />
-        </>
+        </Grid.Column>
+        </Grid.Row>
+        </Grid>
     )
 }

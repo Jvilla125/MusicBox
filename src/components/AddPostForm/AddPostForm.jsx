@@ -71,7 +71,7 @@ export default function AddPostForm(props) {
                             onChange={handleImageInput}
                         />
                     </Form.Field>
-                    <Button type="submit" onClick={handleSubmit}>
+                    <Button type="submit" size="large" onClick={handleSubmit}>
                         Submit Post!
                     </Button>
                 </Form>

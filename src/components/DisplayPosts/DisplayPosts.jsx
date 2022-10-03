@@ -8,7 +8,7 @@ export default function DisplayPosts({ posts, isProfile, loggedUser,loading, add
 
 
     return (
-        <Card.Group itemsPerRow={3} stackable>
+        <Card.Group itemsPerRow={1} stackable>
             {loading ? (
           <Segment>
             <Dimmer active inverted>
@@ -19,12 +19,11 @@ export default function DisplayPosts({ posts, isProfile, loggedUser,loading, add
         ) : null}
             {posts.reverse().map((posts) => {
                 return (
-                    <PostCard style={{ maxWidth: 300, maxHeight: 600}}
+                    <PostCard style={{ maxWidth: 400, maxHeight: 600}}
                         posts={posts}
                         key={posts._id}
                         loggedUser={loggedUser}
                         isProfile={isProfile}
-                        
                         addLike={addLike}
                         removeLike={removeLike}
                         listenLater={listenLater}

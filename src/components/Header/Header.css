@@ -1,6 +1,6 @@
 #header{
     background: rgb(68, 65, 65);
-    height: 140px;
+    height: 160px;
 }
 
 .header-text{
@@ -10,10 +10,18 @@
 
 .links{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: baseline;
+    font-size: 70px;
 }
 
 img{
     height: 90px;
+}
+
+.musicbox{
+    font-family: 'Poiret One', cursive;
+font-family: 'Tapestry', cursive;
+    color: white;
+    font-size: 60px;
 }
