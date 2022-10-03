@@ -22,7 +22,17 @@ export default function PageHeader({ loggedUser, handleLogout }) {
             </Header>
             <List horizontal floated="right">
                 <List.Item>
+                <h2 textAlign="justified">
+                        <Link to="/"><Icon
+                                name="home"
+                                color='blue'
+                            /></Link>
+                    </h2>
+                </List.Item>
+                <List.Item>
                 <List.Content>
+                    
+                    <List.Content>
                     <h2 textAlign="justified">
                         <Popup content="Profile"
                             trigger={
@@ -35,15 +45,6 @@ export default function PageHeader({ loggedUser, handleLogout }) {
                         />
                     </h2>
                 </List.Content>
-                </List.Item>
-                <List.Item>
-                <List.Content>
-                    <h2 textAlign="justified">
-                        <Link to="/"><Icon
-                                name="home"
-                                color='blue'
-                            /></Link>
-                    </h2>
                 </List.Content>
                 </List.Item>
                 <List.Item>

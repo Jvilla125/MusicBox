@@ -6,7 +6,7 @@ import * as likesAPI from "../../utils/likesApi"
 import * as listenlaterAPI from "../../utils/listenlaterApi"
 import * as postsAPI from "../../utils/postApi"
 import Loading from "../../components/Loader/Loader"
-
+import "./Profile.css"
 import PageHeader from "../../components/Header/Header"
 import DisplayPosts from "../../components/DisplayPosts/DisplayPosts"
 
@@ -100,7 +100,9 @@ export default function ProfilePage({ loggedUser }) {
                     <PageHeader loggedUser={loggedUser} />
                 </Grid.Column>
             </Grid.Row>
-
+        <Grid.Row centered>
+            <h1 >Welcome to {username}'s page</h1>
+            </Grid.Row>
             <Grid.Row centered>
 
                 <Image className="profile" rounded src={
@@ -111,7 +113,7 @@ export default function ProfilePage({ loggedUser }) {
 
             </Grid.Row>
             <Grid.Row centered>
-                <span><h1>Total posts: {posts.length}</h1></span>
+                <span><h1 >Total posts: {posts.length}</h1></span>
             </Grid.Row>
             <Divider />
             <Grid.Row>

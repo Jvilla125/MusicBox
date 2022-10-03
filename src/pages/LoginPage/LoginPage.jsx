@@ -68,7 +68,7 @@ export default function LoginPage(props) {
           {error.message ? <ErrorMessage error={error.message} /> : null}
         </Form>
         <Segment inverted>
-          <h3>If you do you have an account, please <Link to="/Signup">Sign up.</Link></h3>
+          <h3>If you do not have an account, please <Link to="/Signup">Sign up.</Link></h3>
         </Segment>
       </Grid.Column>
     </Grid>
