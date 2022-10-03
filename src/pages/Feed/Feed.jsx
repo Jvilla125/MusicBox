@@ -123,7 +123,6 @@ export default function Feed({loggedUser, handleLogout}){
         </Grid.Row>
       <Grid.Row>
         <Grid.Column centered style={{ maxWidth: 600}}>
-        
         <DisplayPosts 
         posts={post} 
         loggedUser={loggedUser} 

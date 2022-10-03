@@ -2,7 +2,15 @@
 
 
 # Screenshots of the App
-![Img.1](https://i.imgur.com/oVwfRVm.png)
+![Img.1](https://i.imgur.com/aN9himg.png "Login Screen")
+* The user will arrive to the `Login` page where they will need to input their username and password. 
+
+![Img.2](https://i.imgur.com/ej4xEsC.png "Sign up")
+* If a user does not have an account, they will need to provide a username, email, password, and profile picture.
+
+![Img.3](https://i.imgur.com/Pxr0pE3.png "Users Profile")
+
+![Img.4](https://i.imgur.com/ENsr3AN.png "Feed")
 # Wireframing
 I used `Whimisical` to plan and lay out the models and structure for this application. 
 

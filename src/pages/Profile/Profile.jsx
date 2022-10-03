@@ -117,7 +117,7 @@ export default function ProfilePage({ loggedUser }) {
             </Grid.Row>
             <Divider />
             <Grid.Row>
-                <Grid.Column centered style={{ maxWidth: 600 }}>
+                <Grid.Column centered style={{ maxWidth: 600, maxHeight: 600 }}>
                     <DisplayPosts
                         posts={posts}
                         isProfile={true}

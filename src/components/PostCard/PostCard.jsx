@@ -78,9 +78,7 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
                                 </button>
                             ) : ( " ")
                         }
-
                     </Card.Content>
-                </Card>
-           
+                </Card>   
     )
 }
