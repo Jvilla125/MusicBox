@@ -1,10 +1,6 @@
 .test{
-    background: #000000 url('Signupimage.jpg');
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    background-size: 100%;
-    background-position: center;
+    background: url('Signupimage.jpg') no-repeat center fixed;
+    background-size: cover;
 }
 
 .SignUpColumn{
