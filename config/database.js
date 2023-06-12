@@ -1,12 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-mongoose.connect(
-  process.env.DATABASE_URL
-  // < replace with your database name!
-);
+// export the function that creates a database connection
+module.exports = {
+  connectDB,
+};
 
-const db = mongoose.connection;
+async function connectDB() {
+  try {
+    const conn = await mongoose.connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-db.on('connected', function() {
-  console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
-});
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+  } catch (err) {
+    console.log("err");
+    console.log(err, ' connecting to mongodb')
+    process.exit(1);
+  }
+}

@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const favicon = require('serve-favicon');
-
+const MongoStore = require('connect-mongo')
 require('./config/database');
 
 // Require controllers here
@@ -30,6 +30,16 @@ app.use('/api', require('./routes/api/listenlater'))
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+
+app.use(session({
+  store: MongoStore.create({
+    mongoUrl: process.env.DATABASE_URL
+  }),
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
 
 const port = process.env.PORT || 3001;
 
