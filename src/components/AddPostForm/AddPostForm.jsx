@@ -79,14 +79,7 @@ export default function AddPostForm(props) {
     }
     on="click"
     positionFixed
-    trigger={<Button animated="vertical" size="large">
-        <Button.Content visible>
-        <Icon name="add square" color="blue" size="large"/>
-        </Button.Content>
-        <Button.Content hidden>
-            Add a Post!
-        </Button.Content>
-        </Button>}
+    trigger={<Button content='Click here to add a Post!' />}
     />
         </>
     )

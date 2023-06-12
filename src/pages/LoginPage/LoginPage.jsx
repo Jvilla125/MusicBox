@@ -48,7 +48,7 @@ export default function LoginPage(props) {
             <Form.Input
             type="username"
             name="username"
-            placeholder="username"
+            placeholder="Username"
             value={state.username}
             onChange={handleChange}
             required
@@ -56,7 +56,7 @@ export default function LoginPage(props) {
             <Form.Input
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="Password"
             value={state.password}
             onChange={handleChange}
             required

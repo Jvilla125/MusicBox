@@ -22,10 +22,8 @@ export default function PostCard({ posts, loggedUser, isProfile, addLike, remove
             deletePost(posts._id)
         }
 
-
-
     return (
-                <Card style={{ maxWidth: 550, maxHeight: 800}} color="green" key={posts._id} raised>
+                <Card  color="green" key={posts._id} raised>
                     {isProfile ? (
                         ""
                     ) : (

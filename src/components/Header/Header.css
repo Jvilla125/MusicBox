@@ -1,35 +1,36 @@
-#header {
-    background: rgb(68, 65, 65);
-    height: 160px;
+#header{
+    background: rgb(148, 152, 184);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-around;
 }
-
-
+#span{
+    font-size: 30px;
+}
 .musicbox {
     font-family: 'Poiret One', cursive;
     font-family: 'Tapestry', cursive;
     color: white;
     font-size: 60px;
 }
+.links-span{
+    font-size: 60px;
+    }
 
 @media (max-width: 576px) {
     #header {
         display: flex;
-        flex-direction: row;
         align-content: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .musicbox {
-        font-size: 40px;
+        font-size: 35px;
     }
-    .profile-image{
-        size: medium;
-    }
+
     .links-span{
-        background-color: red;
+        display: flex;
+        flex-direction: column;
     }
 
 }
